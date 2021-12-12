@@ -1,0 +1,34 @@
+.padding_x_150 {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.header_title {
+    text-align: center;
+    margin: 30px auto;
+    h1 {
+        font-weight: bold;
+    }
+}
+app-header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+app-filter {
+    width: 100%;
+    margin: 0;
+    padding: 150px;
+    height: 100%;
+}
+
+app-table-results {
+    width: 100%;
+    margin: 0;
+    padding: 150px;
+    height: 100vh;
+}
+mat-grid-list {
+    background-color: rgb(237, 237, 237);
+}

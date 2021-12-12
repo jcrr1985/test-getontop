@@ -1,0 +1,42 @@
+.flex {
+    display: flex;
+    width: 100%;
+}
+.bottom_10 {
+    margin-bottom: 1rem;
+}
+.search_input {
+    width: 70%;
+}
+.button_filter {
+    width: 10%;
+    margin: auto 10px;
+}
+.button_add {
+    width: 20%;
+    margin: auto 10px;
+}
+
+.input_style {
+    background-color: white;
+    border: none;
+    height: 36px;
+    margin: auto 5px;
+    border-radius: 3px;
+    box-shadow: rgb(150, 150, 150) 0px 5px 10px 1px;
+    padding-left: 10px;
+    color: rgb(106, 105, 105);
+    border-bottom: none !important;
+}
+.input_dateFilter {
+    width: 30%;
+}
+.input_contractTypeFilter {
+    width: 20%;
+}
+.input_contractNameFilter {
+    width: 32%;
+}
+.input_statusFilter {
+    width: 18%;
+}
