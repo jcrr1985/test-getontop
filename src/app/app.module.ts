@@ -8,17 +8,22 @@ import { FilterComponent } from './components/filter/filter.component';
 import { TableResultsComponent } from './components/table-results/table-results.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table'
-import { MatInputModule } from '@angular/material/input'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatButtonModule } from '@angular/material/button'
-import { MatSelectModule } from '@angular/material/select'
-import { MatTabsModule } from '@angular/material/tabs'
-import { MatCardModule } from '@angular/material/card'
-
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -26,12 +31,13 @@ import { MatCardModule } from '@angular/material/card'
     HeaderComponent,
     FilterComponent,
     TableResultsComponent,
-    ChatComponent
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    LayoutModule,
     MatGridListModule,
     MatToolbarModule,
     MatIconModule,
@@ -41,10 +47,16 @@ import { MatCardModule } from '@angular/material/card'
     MatButtonModule,
     MatSelectModule,
     MatTabsModule,
-    MatCardModule
-
+    MatCardModule,
+    MatMenuModule,
+    FlexLayoutModule,
+    MatNativeDateModule,
+    MatRippleModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

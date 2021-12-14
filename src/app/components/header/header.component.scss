@@ -1,46 +1,116 @@
-mat-toolbar {
-    background-color: white;
-    display: flex;
-    align-items: center;
+@font-face {
+  font-family: aileron;
+  src: url("./../../../assets/fonts/aileron/Aileron-Regular.otf");
 }
-.dropdown {
-    display: flex;
-    position: relative;
-    margin-left: auto !important;
-    margin: 10px;
-    .img_profile {
-        margin: auto 20px;
-        background-color: red;
-        border-radius: 50%;
-        //align-items: center;
-        //align-content: center;
-        height: 40px;
-        width: 40px;
-        background-image: url("https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg");
-        background-size: cover;
-    }
-    mat-icon {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: rgb(214, 214, 214);
-    }
+:host ::ng-deep *:not(mat-icon) {
+  font: 18px aileron !important;
+}
+
+:host ::ng-deep * {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.18px;
+  color: #898989;
+}
+
+.block {
+  display: block;
+}
+
+mat-toolbar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 6.75rem;
+}
+.user_account_dropdown {
+  display: flex;
+  position: relative;
+  margin-left: auto !important;
+  margin: 0.625rem;
+  margin-right: calc(3.875rem - 16px);
+  justify-content: flex-end;
+  align-items: center;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 13%;
+    height: 45px;
+    border-left: 2px solid #c4c4c4;
+    opacity: 0.5;
+  }
+  .img_profile {
+    border-radius: 50%;
+    height: 4.0625rem;
+    width: 4.0625rem;
+    background-image: url("./../../../assets/images/icon_avatar.svg");
+    background-size: cover;
+    margin-left: 2.7rem;
+  }
+  mat-icon {
+    color: rgb(214, 214, 214);
+    font-size: 2rem;
+  }
 }
 .items_container {
-    display: flex;
-    width: 50%;
+  display: flex;
+  width: 60%;
 }
 .container_logo {
+  width: 25%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  img {
+    width: 149px;
+    margin-left: calc(3.875rem - 16px);
+  }
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+// Mobile Styles
+
+.mobile_header {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  background-color: white;
+  height: 60px;
+  .container_logo {
     width: 25%;
     display: flex;
     align-content: center;
     align-items: center;
     img {
-        width: 180px;
-        height: 50px;
-        margin-left: 20px;
+      width: 79px;
+      height: 19px;
+      margin-left: calc(3.875rem - 16px);
     }
+  }
+
+  .dropdown_mobile {
+    margin-left: auto;
+    margin-right: 10px;
+    button {
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .img_button_dropdown {
+    width: 40px;
+    height: 37px;
+  }
+  .button_dropdown {
+    background-image: url("../../../assets/images/hamburguer_bit.svg");
+    width: 30px;
+    height: 5px;
+    margin: 2px auto;
+  }
 }
-.example-spacer {
-    flex: 1 1 auto;
+
+.icons_m{
+  margin:auto 10px;
 }

@@ -1,40 +1,64 @@
-<mat-toolbar>
+<div *ngIf="!isMobile">
+  <mat-toolbar>
     <div class="container_logo">
-        <img class="logo"
-            src="https://juliorodriguez.live/wp-content/uploads/2020/12/logo-julio-rodriguez-500x500-1.png" alt="">
+      <img
+        class="logo"
+        src="./../../../assets/images/logo_main.svg"
+        alt="logo-getontop"
+      />
     </div>
     <div class="items_container">
-        <mat-tab-group>
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    Contracts
-                    <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
-                </ng-template>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    Documents
-                    <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
-                </ng-template>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    Payout
-                    <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
-                </ng-template>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label>
-                    Time
-                    <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
-                </ng-template>
-            </mat-tab>
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+              <img class="icons_m" src="./../../../assets/images/icon_contract.svg" alt="">
+            Contracts
+            <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <img class="icons_m" src="./../../../assets/images/icon_documents.svg" alt="">
+            Documents
+            <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <img class="icons_m" src="./../../../assets/images/icon_payout.svg" alt="">
+            Payout
+            <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <img class="icons_m" src="./../../../assets/images/icon_time.svg" alt="">
 
-        </mat-tab-group>
+            Time
+            <mat-icon class="example-tab-icon">keyboard_arrow_down</mat-icon>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
     </div>
-    <div class="dropdown">
-        <div class="img_profile">
-        </div>
-        <mat-icon>keyboard_arrow_down</mat-icon>
+    <div class="user_account_dropdown">
+      <div class="img_profile"></div>
+      <mat-icon>keyboard_arrow_down</mat-icon>
     </div>
-</mat-toolbar>
+  </mat-toolbar>
+</div>
+<div *ngIf="isMobile" class="mobile_header">
+  <div class="container_logo">
+    <img
+      class="logo_mobile"
+      src="./../../../assets/images/logo_main.svg"
+      alt="logo-getontop"
+    />
+  </div>
+  <div class="dropdown_mobile">
+    <button class="block top_10">
+      <div class="button_dropdown"></div>
+      <div class="button_dropdown"></div>
+      <div class="button_dropdown"></div>
+    </button>
+  </div>
+</div>

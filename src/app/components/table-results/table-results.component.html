@@ -1,34 +1,147 @@
-<div class="container_table">
-    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
-        <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+<div class="desktop_table" *ngIf="!isMobile">
+  <div class="container_table">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      multiTemplateDataRows
+      class="mat-elevation-z8"
+    >
+      <ng-container
+        *ngFor="let source of namesAndData"
+        matColumnDef="{{ source.nameColData }}"
+      >
+        <!-- header de la tabla -->
+        <th mat-header-cell *matHeaderCellDef>{{ source.nameDisplay }}</th>
+        <!-- Elemento personalizado para la muestra del menu contextual o el texto plano-->
+        <ng-container
+          *ngIf="
+            source.nameColData != 'actions' && source.nameColData != 'status' && source.nameColData != 'name';
+            else customTemplates
+          "
+        >
+          <td mat-cell *matCellDef="let element">
+            {{ element[source.nameColData] }}
+          </td>
         </ng-container>
-
-        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-        <ng-container matColumnDef="expandedDetail">
-            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-                <div class="example-element-detail"
-                    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                    <div class="example-element-diagram">
-                        <div class="example-element-position"> {{element.position}} </div>
-                        <div class="example-element-symbol"> {{element.symbol}} </div>
-                        <div class="example-element-name"> {{element.name}} </div>
-                        <div class="example-element-weight"> {{element.weight}} </div>
-                    </div>
-                    <div class="example-element-description">
-                        {{element.description}}
-                        <span class="example-element-description-attribution"> -- Wikipedia </span>
-                    </div>
-                </div>
+        <!-- Boton del Menu contextual -->
+        <ng-template #customTemplates>
+          <ng-container *ngIf="source.nameColData == 'name'">
+            <td mat-cell *matCellDef="let element">
+              <div class="container_name">
+                <img [src]="element['imgSrc']" class="profile_avatar" alt="">
+                {{element[source.nameColData]}}
+              </div>
             </td>
-        </ng-container>
+          </ng-container>
+          <ng-container *ngIf="source.nameColData == 'actions'">
+            <td mat-cell *matCellDef="let element">
+              <button class="menu-trigger-button" [matMenuTriggerFor]="menu">
+                <mat-icon class="more_icon">{{
+                  element[source.nameColData]
+                }}</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container *ngIf="source.nameColData == 'status'">
+            <td mat-cell *matCellDef="let element">
+              <span
+                style="text-align: center"
+                *ngIf="element.status == 'Active'"
+                class="card_row_value status active"
+              >
+                <img
+                  src="../../../assets/images/status_icon_green.svg"
+                  alt=""
+                />
+                {{ element.status }}
+              </span>
+              <span
+                style="text-align: center"
+                *ngIf="element.status == 'Signature Pending'"
+                class="card_row_value status pending"
+              >
+                <img
+                  src="../../../assets/images/status_icon_orange.svg"
+                  alt=""
+                />
+                {{ element.status }}
+              </span>
+            </td>
+          </ng-container>
+        </ng-template>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
-            [class.example-expanded-row]="expandedElement === element"
-            (click)="expandedElement = expandedElement === element ? null : element">
-        </tr>
-        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      <!-- columns para mostrar seleccionadas -->
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <!-- contenedor del renderizado de rows -->
+      <tr mat-row *matRowDef="let myData; columns: columnsToDisplay"></tr>
     </table>
+  </div>
 </div>
+
+<div class="mobile_table" *ngIf="isMobile">
+  <mat-card class="mobile-card" *ngFor="let item of dataSource; let i = index">
+    <mat-card-content>
+      <p class="card-row_p">
+        <span class="card_row_key">Contractor name </span>
+        <span class="card_row_value">{{ item.name }}</span>
+      </p>
+      <p class="card-row_p">
+        <span class="card_row_key">type</span>
+        <span class="card_row_value">{{ item.type }}</span>
+      </p>
+      <p class="card-row_p">
+        <span class="card_row_key">Start date</span>
+        <span class="card_row_value">{{ item.startDate }}</span>
+      </p>
+      <p class="card-row_p">
+        <span class="card_row_key">Amount</span>
+        <span class="card_row_value">{{ item.ammount }}</span>
+      </p>
+      <p class="card-row_p">
+        <span class="card_row_key">status</span>
+        <span
+          *ngIf="item.status == 'Active'"
+          class="card_row_value status active"
+        >
+          <img src="../../../assets/images/status_icon_green.svg" alt="" />
+          {{ item.status }}
+        </span>
+        <span
+          *ngIf="item.status == 'Signature Pending'"
+          class="card_row_value status pending"
+        >
+          <img src="../../../assets/images/status_icon_orange.svg" alt="" />
+          {{ item.status }}
+        </span>
+      </p>
+      <p class="card-row_p">
+        <span class="card_row_key">actions</span>
+        <span class="card_row_value">
+          <button class="menu-trigger-button" [matMenuTriggerFor]="menu">
+            <mat-icon class="more_icon">{{ item.actions }}</mat-icon>
+          </button>
+        </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button class="button_menu_context" mat-menu-item>
+    <img src="./../../../assets/images/menu_icon_edit.svg" alt="edit" />
+    <span class="text_menu_context">Edit</span>
+  </button>
+  <button class="button_menu_context" mat-menu-item disabled>
+    <img src="./../../../assets/images/menu_icon_sign.svg" alt="sign" />
+    <span class="text_menu_context">Sign</span>
+  </button>
+  <button class="button_menu_context" mat-menu-item>
+    <img src="./../../../assets/images/menu_icon_sheet.svg" alt="sheet" />
+    <span class="text_menu_context"> View Summary</span>
+  </button>
+  <button class="button_menu_context" mat-menu-item>
+    <img src="./../../../assets/images/menu_icon_trash.svg" alt="trash" />
+    <span class="text_menu_context"> Delete</span>
+  </button>
+</mat-menu>

@@ -1,34 +1,48 @@
+@font-face {
+  font-family: aileron;
+  src: url("./../assets/fonts/aileron/Aileron-Regular.otf");
+}
+
+@mixin size-margin {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
 .padding_x_150 {
-    padding-left: 150px;
-    padding-right: 150px;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 .header_title {
-    text-align: center;
-    margin: 30px auto;
-    h1 {
-        font-weight: bold;
-    }
+  text-align: center;
+  margin: 30px auto;
+  h1:not(.h1_mobile) {
+    font: normal normal 700 normal 2rem aileron !important;
+    margin-top: 52px!important;
+  }
+}
+.relative {
+  position: relative;
+}
+.h1_mobile {
+  font-size: 1.5rem !important;
 }
 app-header {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    height: 100%;
+  @include size-margin();
+  padding: 0;
 }
 
 app-filter {
-    width: 100%;
-    margin: 0;
-    padding: 150px;
-    height: 100%;
+  @include size-margin();
+  padding: 150px;
 }
 
 app-table-results {
-    width: 100%;
-    margin: 0;
-    padding: 150px;
-    height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 150px;
+  height: 100vh;
 }
 mat-grid-list {
-    background-color: rgb(237, 237, 237);
+  background-color: rgb(237, 237, 237);
 }

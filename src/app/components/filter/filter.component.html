@@ -1,26 +1,113 @@
-<div class="flex bottom_10">
-    <mat-form-field class="search_input input_style">
-        <mat-icon matPrefix>search</mat-icon>
-        <input matInput type="search" placeholder="search here" class="search-input">
-    </mat-form-field>
+<ng-container *ngIf="!isMobile">
+  <div class="flex bottom_10">
+    <div class="search_container">
+      <input
+        matInput
+        type="search"
+        placeholder="search"
+        class="input_style search_input"
+      />
+      <div class="icon_search">
+        <img src="../../../assets/images/search_icon.svg" alt="" />
+      </div>
+    </div>
+
     <button class="button_filter" mat-raised-button>
-        <mat-icon>settings</mat-icon>
-        Filter
+      <img
+        src="../../../assets/images/filter_icon.svg"
+        class="icon_filter"
+        alt=""
+      />
+      Filter
     </button>
-    <button class="button_add" mat-raised-button color="warn">
+    <button class="button_add" mat-raised-button>
+      <mat-icon>add</mat-icon>
+      New hire
+    </button>
+  </div>
+  <div class="flex bottom_10">
+    <div class="input_search_container">
+      <select
+        class="input_style search_input"
+        name=""
+        id=""
+      >
+        <option value="">Create on: Jan/10/21</option>
+      </select>
+      <div class="icon_calendar">
+        <img src="../../../assets/images/calendar_icon.svg" alt="" />
+      </div>
+    </div>
+
+    <select class="input_style input_contractTypeFilter" name="" id="">
+      <option value="">Contract type</option>
+      <option value="">Option</option>
+    </select>
+    <input
+      class="input_style input_contractNameFilter"
+      placeholder="Contractor Name"
+      type="text"
+    />
+    <select class="input_style input_statusFilter" name="" id="">
+      <option value="">Status</option>
+      <option value="">Option</option>
+    </select>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isMobile">
+  <div class="block bottom_20 text-center">
+    <div class="search_container_mobile">
+      <input
+        matInput
+        type="search"
+        placeholder="Search"
+        class="input_style search_input_mobile"
+      />
+      <div class="icon_search_mobile">
+        <img src="../../../assets/images/search_icon.svg" alt="" />
+      </div>
+    </div>
+    <div class="flex text-center top_10">
+      <button class="button_filter_mobile" mat-raised-button>
+        <img
+          src="../../../assets/images/filter_icon.svg"
+          class="icon_filter"
+          alt=""
+        />
+        Filter
+      </button>
+      <button class="button_add_mobile" mat-raised-button>
         <mat-icon>add</mat-icon>
         New hire
-    </button>
-</div>
-<div class="flex bottom_10">
-    <input class="input_style input_dateFilter" type="date">
-    <select class="input_style input_contractTypeFilter" name="" id="">
-        <option value="">Contract type</option>
-        <option value="">Opcion</option>
+      </button>
+    </div>
+  </div>
+  <div class="block bottom_10 text-center">
+    <div class="input_search_container_mobile">
+      <select
+        class="inputs_mobile input_style search_input_mobile"
+        name=""
+        id=""
+      >
+        <option value="">Create on: Jan/10/21</option>
+      </select>
+      <div class="icon_calendar_mobile">
+        <img src="../../../assets/images/calendar_icon.svg" alt="" />
+      </div>
+    </div>
+    <select class="input_style inputs_mobile" name="" id="">
+      <option value="">Contract type</option>
+      <option value="">Option</option>
     </select>
-    <input class="input_style input_contractNameFilter" placeholder="Contractor Name" type="text">
-    <select class="input_style input_statusFilter" name="" id="">
-        <option value="">Status</option>
-        <option value="">Opcion</option>
+    <input
+      class="input_style inputs_mobile"
+      placeholder="Contractor Name"
+      type="text"
+    />
+    <select class="input_style inputs_mobile" name="" id="">
+      <option value="">Status</option>
+      <option value="">Option</option>
     </select>
-</div>
+  </div>
+</ng-container>

@@ -1,42 +1,161 @@
 .flex {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+}
+.block {
+  display: block;
+  width: 100%;
+}
+.justify-center {
+  align-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.top_10 {
+  margin-top: 1rem;
 }
 .bottom_10 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
-.search_input {
-    width: 70%;
+.bottom_20 {
+  margin-bottom: 2rem;
 }
+.search_container {
+  position: relative;
+  .icon_search {
+    position: absolute;
+    left: 20px;
+    top: 13px;
+  }
+  .search_input {
+    width: 55vw;
+    height: 58px;
+    padding-left: 50px;
+    border: solid 1px rgb(225, 225, 225);
+  }
+}
+
 .button_filter {
-    width: 10%;
-    margin: auto 10px;
+  width: 111px!important;
+  margin: auto 10px;
+  height: 58px;
+  background-color: rgb(235, 235, 235);
+}
+.icon_filter {
+  height: 27;
+  width: 23px;
 }
 .button_add {
-    width: 20%;
-    margin: auto 10px;
+  width: 20%;
+  margin: auto 10px;
+  height: 58px;
+  background: #ff5a70;
+  color: #fff;
 }
 
 .input_style {
-    background-color: white;
-    border: none;
-    height: 36px;
-    margin: auto 5px;
-    border-radius: 3px;
-    box-shadow: rgb(150, 150, 150) 0px 5px 10px 1px;
-    padding-left: 10px;
-    color: rgb(106, 105, 105);
-    border-bottom: none !important;
+  background-color: white;
+  border: none;
+  height: 36px;
+  margin: auto 5px;
+  border-radius: 3px;
+  box-shadow: rgb(228, 228, 228) 0px 5px 10px 1px;
+  color: rgb(106, 105, 105);
 }
-.input_dateFilter {
-    width: 30%;
+
+.input_search_container {
+  position: relative;
+  width: 30%;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 45px;
+    width: 98%;
+    height: 40px;
+  }
+  .icon_calendar {
+    background-color: white;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+  }
 }
 .input_contractTypeFilter {
-    width: 20%;
+  width: 20%;
+  height: 40px;
 }
 .input_contractNameFilter {
-    width: 32%;
+  width: 32%;
+  height: 40px;
 }
 .input_statusFilter {
-    width: 18%;
+  width: 18%;
+  height: 40px;
+}
+
+// Mobile Styles
+.search_container_mobile {
+  position: relative;
+  .icon_search_mobile {
+    position: absolute;
+    left: 40px;
+    top: 13px;
+  }
+  .search_input_mobile {
+    width: 90vw;
+    height: 50px;
+    padding-left: 50px;
+    border: solid 1px rgb(225, 225, 225);
+    box-shadow: none;
+  }
+  .icon_calendar_mobile {
+    position: absolute;
+    left: 35px;
+    top: 15px;
+  }
+}
+.input_search_container_mobile {
+  position: relative;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 45px;
+  }
+  .icon_calendar_mobile {
+    background-color: white;
+    position: absolute;
+    left: 80px;
+    top: 22px;
+  }
+}
+
+.button_filter_mobile {
+  width: 30vw;
+  height: 58px;
+  background-color: rgb(235, 235, 235);
+  margin: auto auto auto 5vw;
+}
+.button_add_mobile {
+  width: 55vw;
+  height: 58px;
+  margin: auto 4vw auto auto;
+  background: #ff5a70;
+  color: #fff;
+}
+
+.input_dateFilter_mobile {
+  width: 65vw;
+  height: 40px;
+  margin: 12px auto;
+}
+.inputs_mobile {
+  width: 65vw;
+  height: 40px;
+  margin: 12px auto;
 }

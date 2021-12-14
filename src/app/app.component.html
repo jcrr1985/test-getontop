@@ -1,8 +1,11 @@
-<app-header></app-header>
-<div class="padding_x_150">
-  <div *ngIf="enabled_title" class="header_title">
-    <h1>{{ current_title }}</h1>
+<div class="relative">
+  <app-header [isMobile]="isMobile"></app-header>
+  <div [ngClass]="{ padding_x_150: !isMobile }">
+    <div *ngIf="enabled_title" class="header_title">
+      <h1 [ngClass]="{ h1_mobile: isMobile }">{{ current_title }}</h1>
+    </div>
+    <app-filter [isMobile]="isMobile"></app-filter>
+    <app-table-results [isMobile]="isMobile"></app-table-results>
   </div>
-  <app-filter></app-filter>
-  <app-table-results></app-table-results>
+  <app-chat [isMobile]="isMobile"></app-chat>
 </div>

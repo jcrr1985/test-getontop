@@ -48,3 +48,44 @@ body {
 mat-tab-group > mat-tab-header {
   border-bottom: none !important;
 }
+th.mat-header-cell:nth-child(1) {
+  padding-left:  5rem!important;
+}
+
+.mat-form-field-underline {
+  height: 0px !important;
+}
+
+.mat-menu-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  button {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 162px !important;
+    height: 42px !important;
+  }
+}
+
+@font-face {
+  font-family: aileron;
+  src: url("./assets/fonts/aileron/Aileron-Regular.otf");
+}
+:host ::ng-deep *:not(mat-icon) {
+  font: 18px aileron !important;
+}
+
+:host ::ng-deep * {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.18px;
+  color: #898989;
+}
+
+.card_row_key {
+  font-style: 12px!important;
+  font-weight: 700!important;
+}
+
